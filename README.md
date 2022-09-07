@@ -15,45 +15,47 @@ The only thing you need to do is setting your private keys and addresses.
 
 Firstly, Python3 should be installed on your computer. You can download Python from the link below.
 
-https://www.python.org/downloads/
+- https://www.python.org/downloads/
 
-The **web3.py** package should be installed. 
+- The **web3.py** package should be installed. 
 
-Open **Terminal** or **Cmd**:
+- Open **Terminal** or **Cmd**:
 
-For Mac:
+- For Mac:
 ```
 pip3 install web3
 ```
 
-For Windows:
+- For Windows:
 ```
 pip install web3
 ```
 
-After that, you should set your **private keys and addresses** from **config.py** file which is under **src/utils** directory.
+After that, you should set your **private keys and addresses** from **config.py** file which is under **src/utils** directory. You can set addresses as many as you desire.
+
+![Screen Shot 2022-09-07 at 13 12 28](https://user-images.githubusercontent.com/60021484/188853312-2dfb3f6c-3731-4e7d-bb8a-f30bb626aaeb.png)
 
 There is one more step left. We should get your access token.
 
-Open Google Chrome and go https://idle.crabada.com/
+- Open Google Chrome and go https://idle.crabada.com/
 
-Right click to screen and click 'Inspect', then select 'Network' from the top bar. 
+- Right click to screen and click 'Inspect', then select 'Network' from the top bar. 
 
-Refresh the page.
+- Refresh the page.
 
-Search for **'token?refreshToken'** request in the list at the right side of the page. **Click** it.
+- Search for **'token?refreshToken'** request in the list at the right side of the page. **Click** it.
 
-resim
+![Screen Shot 2022-09-05 at 14 50 18](https://user-images.githubusercontent.com/60021484/188851617-3758df42-c74f-49e4-9721-5e9e1f2318f4.png)
 
-Copy the value in this request after 'token?refreshToken'. As shown in the picture below. This is your access token.
 
-resim 
+- Copy the value highligted with light blue in this request after **'token?refreshToken'**. As shown in the picture below. This is your access token.
 
-Open **config.py** in the project and paste your access token to **BEARERS** dict.
+ ![Screen Shot 2022-09-05 at 14 51 08](https://user-images.githubusercontent.com/60021484/188851673-0cdc1909-3a2e-43ce-97fb-f0443987f5dc.png)
 
-It should be seen like below. 
+- Open **config.py** in the project under **src/utils** directory and paste your access token to **BEARERS** dict.
 
-resim
+![Screen Shot 2022-09-07 at 13 09 52](https://user-images.githubusercontent.com/60021484/188852841-34bb9eb8-939d-41e7-9d98-9f99dc8d252d.png)
+
 ## How it works
 
 - **main.py** is for running all programs on different terminal windows. If there is a problem with main.py or you don't want to run it, you can run programs manually.
