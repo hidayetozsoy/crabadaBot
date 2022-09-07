@@ -31,9 +31,3 @@ HEADERS = {
     'sec-gpc': '1',
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.79 Safari/537.36',
 }
-
-GAS_PRICE_LIMIT = 20000 * pow(10,9)
-GAS_LIMIT = 300000
-RPC_URL = "https://subnets.avax.network/swimmer/mainnet/rpc"
-CHAIN_ID = 73772
-CONTRACT_ADDRESS = "0x9ab9e81Be39b73de3CCd9408862b1Fc6D2144d2B" #crabada_game_contract
