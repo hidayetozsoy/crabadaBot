@@ -17,7 +17,7 @@ Firstly, Python3 should be installed on your computer. You can download Python f
 
 - https://www.python.org/downloads/
 
-- The **web3.py** package should be installed. 
+Then **web3.py** package should be installed. 
 
 - Open **Terminal** or **Cmd**:
 
