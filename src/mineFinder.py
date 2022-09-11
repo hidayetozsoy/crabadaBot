@@ -49,6 +49,7 @@ def main():
     global factions
     while True:
         try:
+            delSafeMines()
             factions = getTeamFactions()
             if factions:
                 mineFinder()

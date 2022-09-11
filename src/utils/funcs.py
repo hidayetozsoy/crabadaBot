@@ -182,6 +182,18 @@ def delMineFromData(mineId, data):
         with open(dataPath, "w") as file:
             file.write(json.dumps(foundMines))
 
+def delSafeMines():
+    for data in ["WithHistory", ""]:
+        dataPath = os.path.dirname(os.path.realpath(__file__)) + f"/attackable{data}.json"
+        with open(dataPath, "r") as file:
+            try:
+                foundMines = json.load(file)
+            except json.JSONDecodeError:
+                return
+        for mine in foundMines.keys():
+            if isSafe(foundMines[mine]["startTime"]):
+                delMineFromData(mine, data)
+
 #returns attack point and defense point of given game id
 def getPoints(gameId):
     gameData = requests.get(f"https://idle-game-api.crabada.com/public/idle/mine/{gameId}", headers=HEADERS).json()["result"]
