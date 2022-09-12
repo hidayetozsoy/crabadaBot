@@ -48,30 +48,24 @@ Then **web3.py** package should be installed.
 
 - Click **three dots** on the top right.
 
-<img width="405" alt="Screen Shot 2022-09-12 at 11 20 15" src="https://user-images.githubusercontent.com/60021484/189606234-95cf6cc5-5396-49f3-9d02-02f418f57f01.png">
-
 - Click **Account Details**.
-
-<img width="405" alt="Screen Shot 2022-09-12 at 11 10 18" src="https://user-images.githubusercontent.com/60021484/189605733-22c6cc8c-e902-41a7-8257-83869a43ac3e.png">
 
 - Click **Export Private Key**.
 
-<img width="405" alt="Screen Shot 2022-09-12 at 11 10 37" src="https://user-images.githubusercontent.com/60021484/189605778-61ca4955-ca3b-4f8c-b345-e3517bdfd28f.png">
-
 - Write your **Metamask password** to the area and click **Confirm**. You will see your private key.
 
-<img width="405" alt="Screen Shot 2022-09-12 at 11 11 11" src="https://user-images.githubusercontent.com/60021484/189605899-49e26118-7f7c-452d-8278-00231c141ada.png">
-
 - Copy your **private key**.
+- Wait for GIF below.
 
-<img width="405" alt="Screen Shot 2022-09-12 at 11 12 17" src="https://user-images.githubusercontent.com/60021484/189605924-46799f1c-9f9e-4c92-8fab-903b81351340.png">
+![howToGetPrivateKey](https://user-images.githubusercontent.com/60021484/189709264-af5cb80f-b286-4d10-9720-f3bd27db6f59.gif)
 
 ### Set Addresses and Private Keys
 - Open config.py under **src/utils** directory. You can use Visual Studio Code to edit the code, or Notepad will be useful.
 
 - Put your addresses to the left side. Private keys should be put to the right side like below.
 
-<img width="1381" alt="Screen Shot 2022-09-12 at 12 38 39" src="https://user-images.githubusercontent.com/60021484/189622791-71cfe3bf-2de6-409a-9d38-c2ad5772f260.png">
+![Screen Shot 2022-09-12 at 19 15 12](https://user-images.githubusercontent.com/60021484/189705382-130065e0-ad06-4940-acea-a7cf8496bc83.png)
+
 - If you want to add multiple addresses, you should put comma (,) end of every line.
 
 ### Get Your Access Token
@@ -96,13 +90,13 @@ Then **web3.py** package should be installed.
 
 - Copy the value highligted with light blue in this request after **'token?refreshToken'**. As shown in the picture below. This is your access token. It usually starts with "eyJhb"...
 
- ![Screen Shot 2022-09-05 at 14 51 08](https://user-images.githubusercontent.com/60021484/188851673-0cdc1909-3a2e-43ce-97fb-f0443987f5dc.png)
+![Screen Shot 2022-09-05 at 14 51 08](https://user-images.githubusercontent.com/60021484/189710649-7cdac7ac-06bb-4ddf-b9c1-fb15c9520ad8.png)
 
 ### Set Access Token
 
 - Open **config.py** in the project under **src/utils** directory and paste your access token in **ACCESS_TOKENS** dict next to your address.
 
-<img width="1381" alt="Screen Shot 2022-09-12 at 12 48 50" src="https://user-images.githubusercontent.com/60021484/189624490-e8fb90ef-e6dd-4c09-a444-80042ac2848d.png">
+![Screen Shot 2022-09-12 at 19 17 42](https://user-images.githubusercontent.com/60021484/189705432-d873ae80-932d-4719-9993-3fb62263abb5.png)
 
 ### Run program
 
@@ -121,7 +115,7 @@ Then **web3.py** package should be installed.
 - **main.py** is for running all programs on different terminal windows. If there is a problem with main.py or you don't want to run it, you can run programs manually.
 
 - **src**
-    - **attacker.py** is runned individually for every address. If you have 3 addresses, 3 attacker.py should be runned. Takes 1 flag as the address. 
+    - **attacker.py** is runned individually for every address. If you have 3 addresses, 3 attacker.py should be runned. Takes 1 parameter as the address. 
     - **looter.py** is for checking open loots. If there is an open loot, it takes care of the loot. Reinforces and settles the game. There should be just 1 **looter.py** running. All the addresses is checked from 1 app.
     - **mineFinder.py** is for finding mines to loot. It searches for suitable mines and opponents who didn't reinforced their last mine. Mines are saved to **attackableWithHistory.json** and **attackable.json**. Option for number of last mines that opponent didn't reinforce can be changed through **config.py** file.
     - **miner.py** is for checking open mines. Starts mines when team's looting point is 0. Reinforces if needed. Just 1 **miner.py** is used for all addresses, like **looter.py**.
