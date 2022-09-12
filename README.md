@@ -90,7 +90,7 @@ Then **web3.py** package should be installed.
 
 - Copy the value highligted with light blue in this request after **'token?refreshToken'**. As shown in the picture below. This is your access token. It usually starts with "eyJhb"...
 
- ![Screen Shot 2022-09-05 at 14 51 08](https://user-images.githubusercontent.com/60021484/188851673-0cdc1909-3a2e-43ce-97fb-f0443987f5dc.png)
+![Screen Shot 2022-09-05 at 14 51 08](https://user-images.githubusercontent.com/60021484/189710649-7cdac7ac-06bb-4ddf-b9c1-fb15c9520ad8.png)
 
 ### Set Access Token
 
