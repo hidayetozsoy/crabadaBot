@@ -48,23 +48,16 @@ Then **web3.py** package should be installed.
 
 - Click **three dots** on the top right.
 
-<img width="405" alt="Screen Shot 2022-09-12 at 11 20 15" src="https://user-images.githubusercontent.com/60021484/189606234-95cf6cc5-5396-49f3-9d02-02f418f57f01.png">
-
 - Click **Account Details**.
-
-<img width="405" alt="Screen Shot 2022-09-12 at 11 10 18" src="https://user-images.githubusercontent.com/60021484/189605733-22c6cc8c-e902-41a7-8257-83869a43ac3e.png">
 
 - Click **Export Private Key**.
 
-<img width="405" alt="Screen Shot 2022-09-12 at 11 10 37" src="https://user-images.githubusercontent.com/60021484/189605778-61ca4955-ca3b-4f8c-b345-e3517bdfd28f.png">
-
 - Write your **Metamask password** to the area and click **Confirm**. You will see your private key.
 
-<img width="405" alt="Screen Shot 2022-09-12 at 11 11 11" src="https://user-images.githubusercontent.com/60021484/189605899-49e26118-7f7c-452d-8278-00231c141ada.png">
-
 - Copy your **private key**.
+- Wait for GIF below.
 
-<img width="405" alt="Screen Shot 2022-09-12 at 11 12 17" src="https://user-images.githubusercontent.com/60021484/189605924-46799f1c-9f9e-4c92-8fab-903b81351340.png">
+![howToGetPrivateKey](https://user-images.githubusercontent.com/60021484/189709264-af5cb80f-b286-4d10-9720-f3bd27db6f59.gif)
 
 ### Set Addresses and Private Keys
 - Open config.py under **src/utils** directory. You can use Visual Studio Code to edit the code, or Notepad will be useful.
