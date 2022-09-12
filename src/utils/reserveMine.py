@@ -1,5 +1,5 @@
 import requests
-from config import BEARERS
+from config import ACCESS_TOKENS
 
 def getHeaders(accessToken, gameId):
     headers = {
@@ -33,5 +33,5 @@ def reserveMine(accessToken, gameId, teamId):
     response = requests.put(attackUrl, json=data, headers=headers)
     
 if __name__ == "__main__":
-    reserveMine(BEARERS["0xb945f4Cc708A74b8f7FC70d689e445cdEb9bC9f4"], 2577893, 545)
+    reserveMine(ACCESS_TOKENS["0xb945f4Cc708A74b8f7FC70d689e445cdEb9bC9f4"], 2577893, 545)
     

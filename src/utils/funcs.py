@@ -215,7 +215,7 @@ def getPoints(gameId):
 
 #returns a new acces token for given address
 def getAccessToken(address):
-    refreshTokenUrl = "https://market-api.crabada.com/crabada-user/public/refresh/token?refreshToken=" + BEARERS[address]
+    refreshTokenUrl = "https://market-api.crabada.com/crabada-user/public/refresh/token?refreshToken=" + ACCESS_TOKENS[address]
     accessToken = requests.get(refreshTokenUrl, headers=HEADERS).json()["result"]["accessToken"]
     return accessToken
 
