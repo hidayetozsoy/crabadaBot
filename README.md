@@ -11,10 +11,10 @@ The only thing you need to do is setting your private keys, addresses, and acces
 ## Set Up
 
  1. [Install Python](#install-python)
- 2. [How To Get Your Address](#how-to-get-your-address)
- 3. [How To Get Your Private Key](#how-to-get-your-private-key)
+ 2. [Get Your Address](#get-your-address)
+ 3. [Get Your Private Key](#get-your-private-key)
  4. [Set Addresses and Private Keys](#set-addresses-and-private-keys)
- 5. [How To Get Your Access Token](#how-to-get-your-access-token)
+ 5. [Get Your Access Token](#get-your-access-token)
  6. [Set Access Token](#set-access-token)
  7. [Run Program](#run-program)
  8. [How It Works](#how-it-works)
@@ -36,14 +36,14 @@ Then **web3.py** package should be installed.
 - For Windows:
 `pip install web3`
 
-### How To Get Your Address
+### Get Your Address
 - Open **Metamask** extension
 
 - Click to the shown area. Your address will be copied to clipboard.
 
 <img width="405" alt="Screen Shot 2022-09-12 at 11 21 46" src="https://user-images.githubusercontent.com/60021484/189613923-2d75d3a9-79d1-4d0e-a3ee-aeee7d0dfaaa.png">
 
-### How To Get Your Private Key
+### Get Your Private Key
 - Open **Metamask** extension.
 
 - Click **three dots** on the top right.
@@ -74,7 +74,7 @@ Then **web3.py** package should be installed.
 <img width="1381" alt="Screen Shot 2022-09-12 at 12 38 39" src="https://user-images.githubusercontent.com/60021484/189622791-71cfe3bf-2de6-409a-9d38-c2ad5772f260.png">
 - If you want to add multiple addresses, you should put comma (,) end of every line.
 
-### How To Get Your Access Token
+### Get Your Access Token
 
 - Open Google Chrome and go https://idle.crabada.com/
 
