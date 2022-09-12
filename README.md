@@ -71,7 +71,8 @@ Then **web3.py** package should be installed.
 
 - Put your addresses to the left side. Private keys should be put to the right side like below.
 
-<img width="1381" alt="Screen Shot 2022-09-12 at 12 38 39" src="https://user-images.githubusercontent.com/60021484/189622791-71cfe3bf-2de6-409a-9d38-c2ad5772f260.png">
+![Screen Shot 2022-09-12 at 19 15 12](https://user-images.githubusercontent.com/60021484/189705382-130065e0-ad06-4940-acea-a7cf8496bc83.png)
+
 - If you want to add multiple addresses, you should put comma (,) end of every line.
 
 ### Get Your Access Token
@@ -102,7 +103,7 @@ Then **web3.py** package should be installed.
 
 - Open **config.py** in the project under **src/utils** directory and paste your access token in **ACCESS_TOKENS** dict next to your address.
 
-<img width="1381" alt="Screen Shot 2022-09-12 at 12 48 50" src="https://user-images.githubusercontent.com/60021484/189624490-e8fb90ef-e6dd-4c09-a444-80042ac2848d.png">
+![Screen Shot 2022-09-12 at 19 17 42](https://user-images.githubusercontent.com/60021484/189705432-d873ae80-932d-4719-9993-3fb62263abb5.png)
 
 ### Run program
 
