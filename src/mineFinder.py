@@ -1,5 +1,5 @@
 import time, requests, sys, os
-sys.path.append(os.getcwd() + '/utils')
+sys.path.append((os.path.dirname(__file__)))
 from utils.funcs import *
 
 def mineFinder():

@@ -1,31 +1,10 @@
-import os, sys, requests
-sys.path.append(os.getcwd() + '/utils')
+import os, sys
+sys.path.append((os.path.dirname(__file__)))
 from utils.reserveMine import reserveMine
 from utils.mineChooser import chooseMine
 from utils.consts import *
 from utils.funcs import *
 from utils.config import *
-
-def getTeamsInfo():
-    availableTeamsUrl = f"https://idle-game-api.crabada.com/public/idle/teams?user_address={ADDRESS}&is_team_available=1"
-    teamsData = requests.get(availableTeamsUrl, headers=HEADERS, timeout=10).json()["result"]["data"]
-    if teamsData is None:
-        return False
-    teamsInfo = dict()
-    for team in teamsData :
-        if team["looting_point"] > 0:
-            teamId = team["team_id"]
-            attackFaction, attackPoint = team["faction"], team["battle_point"]
-            teamsInfo[teamId] = {"faction": attackFaction, "attackPoint": attackPoint}
-    return teamsInfo
-
-def getLatestGameAttack(teamId):
-    teamsUrl = f"https://idle-game-api.crabada.com/public/idle/teams?user_address={ADDRESS}&page=1&limit=10"
-    teams = requests.get(teamsUrl, headers=HEADERS, timeout=10).json()["result"]["data"]
-    for team in teams:
-        if team["team_id"] == teamId:
-            latestGameAttack = team["latest_game_attack"]
-            sendAttackTx(address=ADDRESS, game=latestGameAttack)
 
 def attack(teamsInfo):
     try:
@@ -45,7 +24,7 @@ def attack(teamsInfo):
     reserveMine(accessToken, mineId, teamId)
     printn("mine reserved...")
     sleepy(10)
-    getLatestGameAttack(teamId)
+    getLatestGameAttack(address=ADDRESS, teamId=teamId)
 
 def main(address):
     global ADDRESS

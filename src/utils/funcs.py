@@ -71,7 +71,6 @@ def getTeamFactions():
                 factions.append(info)
     return factions    
 
-
 #gets teams data of the address
 def getTeamsData(address):
     teamsUrl = f"https://idle-game-api.crabada.com/public/idle/teams?user_address={address}&page=1&limit=10"
@@ -228,6 +227,19 @@ def getAvailableMineTeam(address):
             return teamId
     return None
 
+def getTeamsInfo(address):
+    availableTeamsUrl = f"https://idle-game-api.crabada.com/public/idle/teams?user_address={address}&is_team_available=1"
+    teamsData = requests.get(availableTeamsUrl, headers=HEADERS, timeout=10).json()["result"]["data"]
+    if teamsData is None:
+        return False
+    teamsInfo = dict()
+    for team in teamsData :
+        if team["looting_point"] > 0:
+            teamId = team["team_id"]
+            attackFaction, attackPoint = team["faction"], team["battle_point"]
+            teamsInfo[teamId] = {"faction": attackFaction, "attackPoint": attackPoint}
+    return teamsInfo
+
 #starts game with given team id
 def startGame(address, teamId):
     printn(f"Starting game with team {teamId}")
@@ -254,6 +266,14 @@ def sendAttackTx(address, game):
     lastPart, signaturePart1, signaturePart2 = parseSignature(signature)
     dataInput = METHODS["attack"] + zeroHex(gameId) + zeroHex(teamId) + zeroHex(expireTime) + zeroHex(128) + zeroHex(65) + signaturePart1 + signaturePart2 + lastPart.ljust(64,"0")
     sendTx(address=address, dataInput=dataInput)
+
+def getLatestGameAttack(address, teamId):
+    teamsUrl = f"https://idle-game-api.crabada.com/public/idle/teams?user_address={address}&page=1&limit=10"
+    teams = requests.get(teamsUrl, headers=HEADERS, timeout=10).json()["result"]["data"]
+    for team in teams:
+        if team["team_id"] == teamId:
+            latestGameAttack = team["latest_game_attack"]
+            sendAttackTx(address=address, game=latestGameAttack)
 
 def parseSignature(signature):
     lastPart = signature[-2:]
