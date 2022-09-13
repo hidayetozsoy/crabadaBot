@@ -7,7 +7,7 @@ from utils.consts import *
 #checks for the games reserved but not tx sent
 def checkResendAttacks():
     teamsUrl = f"https://idle-game-api.crabada.com/public/idle/teams?user_address={ADDRESS}&page=1&limit=10"
-    teams = requests.get(teamsUrl, headers=HEADERS).json()["result"]["data"]
+    teams = requests.get(teamsUrl, headers=HEADERS, timeout=20).json()["result"]["data"]
     for team in teams:
         if ("latest_game_attack" in team) and team["status"] == "AVAILABLE":
             game = team["latest_game_attack"]
@@ -21,7 +21,7 @@ def checkResendAttacks():
 #reinforces with given game id, difference
 def reinforce(gameId):
     hireUrl = f"https://idle-game-api.crabada.com/public/idle/crabadas/lending?class_ids[]=4&orderBy=battle_point&order=desc&page=1&limit=100"
-    crabs = requests.get(hireUrl,headers=HEADERS).json()["result"]["data"]
+    crabs = requests.get(hireUrl,headers=HEADERS, timeout=20).json()["result"]["data"]
     for crab in crabs[15:]:
         crabId, battlePoint, borrowPrice, battlePoint = crab["crabada_id"], crab["battle_point"], crab["price"], crab["battle_point"]
         if crab["battle_point"] == 237 and borrowPrice < 10 * pow(10,18):
@@ -41,7 +41,7 @@ def checkGames():
             if not team["game_id"]:
                 printn(f"{teamId} Waiting for locked team...")
                 continue
-            game = requests.get(f"https://idle-game-api.crabada.com/public/idle/mine/{gameId}", headers=HEADERS).json()["result"]
+            game = requests.get(f"https://idle-game-api.crabada.com/public/idle/mine/{gameId}", headers=HEADERS, timeout=20).json()["result"]
             round, startTime, lastProcess = game["round"], team["game_start_time"], game["process"][-1]
             lastAction, lastProcessTime = lastProcess["action"], lastProcess["transaction_time"]
             now = time.time()

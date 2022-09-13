@@ -6,12 +6,12 @@ def mineFinder():
     printn("Looking for mines...")
     address = randomAddressCreator()
     totalMinesUrl = f"https://idle-game-api.crabada.com/public/idle/mines?page=1&status=open&looter_address={address}&can_loot=1&limit=100"
-    totalPagesData= requests.get(totalMinesUrl, headers=HEADERS)
+    totalPagesData= requests.get(totalMinesUrl, headers=HEADERS, timeout=20)
     totalPages = totalPagesData.json()["result"]["totalPages"]
     for page in range(1, totalPages+1):
         printn(f"Page: {page}")
         minesUrl = f"https://idle-game-api.crabada.com/public/idle/mines?page={page}&status=open&looter_address={address}&can_loot=1&limit=100"
-        minesData = requests.get(minesUrl, headers=HEADERS)
+        minesData = requests.get(minesUrl, headers=HEADERS, timeout=20)
         mines = minesData.json()["result"]["data"]
         mineNum = 0
         stop = False

@@ -8,7 +8,7 @@ from utils.config import *
 
 def getTeamsInfo():
     availableTeamsUrl = f"https://idle-game-api.crabada.com/public/idle/teams?user_address={ADDRESS}&is_team_available=1"
-    teamsData = requests.get(availableTeamsUrl,headers=HEADERS).json()["result"]["data"]
+    teamsData = requests.get(availableTeamsUrl, headers=HEADERS, timeout=20).json()["result"]["data"]
     if teamsData is None:
         return False
     teamsInfo = dict()
@@ -21,7 +21,7 @@ def getTeamsInfo():
 
 def getLatestGameAttack(teamId):
     teamsUrl = f"https://idle-game-api.crabada.com/public/idle/teams?user_address={ADDRESS}&page=1&limit=10"
-    teams = requests.get(teamsUrl, headers=HEADERS).json()["result"]["data"]
+    teams = requests.get(teamsUrl, headers=HEADERS, timeout=20).json()["result"]["data"]
     for team in teams:
         if team["team_id"] == teamId:
             latestGameAttack = team["latest_game_attack"]
