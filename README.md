@@ -117,8 +117,8 @@ Then **web3.py** package should be installed.
 - **src**
     - **attacker.py** is runned individually for every address. If you have 3 addresses, 3 attacker.py should be runned. Takes 1 parameter as the address. 
     - **looter.py** is for checking open loots. If there is an open loot, it takes care of the loot. Reinforces and settles the game. There should be just 1 **looter.py** running. All the addresses is checked from 1 app.
-    - **mineFinder.py** is for finding mines to loot. It searches for suitable mines and opponents who didn't reinforced their last mine. Mines are saved to **attackableWithHistory.json** and **attackable.json**. Option for number of last mines that opponent didn't reinforce can be changed through **config.py** file.
     - **miner.py** is for checking open mines. Starts mines when team's looting point is 0. Reinforces if needed. Just 1 **miner.py** is used for all addresses, like **looter.py**.
+    - **mineFinder.py** is for finding mines to loot. It searches for suitable mines and opponents who didn't reinforced their last mine. Mines are saved to **attackableWithHistory.json** and **attackable.json**. Option for number of last mines that opponent didn't reinforce can be changed through **config.py** file.
     - **utils**
         - **attackable.json** and **attackableWithHistory.json** is used to save suitable mines. **attackableWithHistory** keeps the mines whose owner didn't reinforce last mine.
         - **config.py** is where you will set your addresses, private keys, access tokens, and other options about transactions.
