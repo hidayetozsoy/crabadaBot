@@ -30,7 +30,7 @@ def reserveMine(accessToken, gameId, teamId):
     attackUrl = f"https://idle-game-api.crabada.com/public/idle/attack/{gameId}"
     data = {"team_id":teamId}
     headers = getHeaders(accessToken, gameId)
-    response = requests.put(attackUrl, json=data, headers=headers, timeout=20)
+    response = requests.put(attackUrl, json=data, headers=headers, timeout=10)
     
 if __name__ == "__main__":
     reserveMine(ACCESS_TOKENS["0xb945f4Cc708A74b8f7FC70d689e445cdEb9bC9f4"], 2577893, 545)

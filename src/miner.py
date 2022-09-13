@@ -6,7 +6,7 @@ from utils.consts import *
 #checks all teams. 
 def checkGames():
     printn("Checking games...")
-    games = requests.get(f"https://idle-game-api.crabada.com/public/idle/mines?user_address={ADDRESS}&page=1&status=open&limit=8", headers=HEADERS, timeout=20).json()["result"]["data"]
+    games = requests.get(f"https://idle-game-api.crabada.com/public/idle/mines?user_address={ADDRESS}&page=1&status=open&limit=8", headers=HEADERS, timeout=10).json()["result"]["data"]
     for game in games:
         now = time.time()
         gameEndTime, gameId, lastProcess, round, teamId = game["end_time"], game["game_id"], game["process"][-1], game["round"], game["team_id"]
@@ -23,7 +23,7 @@ def checkGames():
 #reinforces with mine point > 80, less then 10 TUS.
 def reinforce(gameId):
     hireUrl = f"https://idle-game-api.crabada.com/public/idle/crabadas/lending?orderBy=time_point&order=desc&page=1&limit=99"
-    crabs = requests.get(hireUrl, headers=HEADERS, timeout=20).json()["result"]["data"]
+    crabs = requests.get(hireUrl, headers=HEADERS, timeout=10).json()["result"]["data"]
     for crab in crabs[10:]:
         crabId, minePoint, borrowPrice, battlePoint = crab["crabada_id"], crab["mine_point"], crab["price"], crab["battle_point"]
         if minePoint >= 80 and borrowPrice < 10 * pow(10,18):

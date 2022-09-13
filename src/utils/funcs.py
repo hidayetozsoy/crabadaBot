@@ -60,7 +60,7 @@ def getTeamFactions():
     factions = list()
     for address in PRIVATE_KEYS.keys():
         teamsUrl = f"https://idle-game-api.crabada.com/public/idle/teams?user_address={address}"
-        teams = requests.get(teamsUrl, headers=HEADERS, timeout=20).json()["result"]["data"]
+        teams = requests.get(teamsUrl, headers=HEADERS, timeout=10).json()["result"]["data"]
         if teams is None:
             return False
         for team in teams:
@@ -76,7 +76,7 @@ def getTeamFactions():
 def getTeamsData(address):
     teamsUrl = f"https://idle-game-api.crabada.com/public/idle/teams?user_address={address}&page=1&limit=10"
     printn("Getting team data...")
-    teamsData = requests.get(teamsUrl,headers=HEADERS, timeout=20).json()["result"]["data"]
+    teamsData = requests.get(teamsUrl,headers=HEADERS, timeout=10).json()["result"]["data"]
     return teamsData 
 
 #checks if given factions and points are attackable
@@ -108,7 +108,7 @@ def isAttackable(attackFaction, defenseFaction, attackPoint, defensePoint):
 #checks if the last x mines of given address are not reinforced. x can be configured from config.py
 def checkAttackableMineHistory(address):
     mineHistoryUrl = f"https://idle-game-api.crabada.com/public/idle/mines?user_address={address}&page=1&status=close&limit={NON_REINFORCED_GAME_LIMIT}"
-    mineHistory = requests.get(mineHistoryUrl, headers=HEADERS, timeout=20).json()["result"]["data"]
+    mineHistory = requests.get(mineHistoryUrl, headers=HEADERS, timeout=10).json()["result"]["data"]
     
     for mine in mineHistory:
         round = mine["round"]
@@ -134,7 +134,7 @@ def isSafe(mineStartTime):
 #checks if mine is attacked
 def isMineAttacked(mineId):
     mineUrl = f"https://idle-game-api.crabada.com/public/idle/mine/{mineId}"
-    mine = requests.get(mineUrl, headers=HEADERS, timeout=20).json()["result"]
+    mine = requests.get(mineUrl, headers=HEADERS, timeout=10).json()["result"]
     attackTeamId = mine["attack_team_id"]
     mineStartTime = mine["start_time"]
     if isSafe(mineStartTime):
@@ -196,7 +196,7 @@ def delSafeMines():
 
 #returns attack point and defense point of given game id
 def getPoints(gameId):
-    gameData = requests.get(f"https://idle-game-api.crabada.com/public/idle/mine/{gameId}", headers=HEADERS, timeout=20).json()["result"]
+    gameData = requests.get(f"https://idle-game-api.crabada.com/public/idle/mine/{gameId}", headers=HEADERS, timeout=10).json()["result"]
     attackTeamFaction, defenseTeamFaction, attackPoint, defensePoint, attackTeamMembers, defenseTeamMembers = gameData["attack_team_faction"], gameData["defense_team_faction"], gameData["attack_point"], gameData["defense_point"], gameData["attack_team_members"], gameData["defense_team_members"]
     defensePurePoint, attackPurePoint= 0,0
     for member in defenseTeamMembers:
@@ -216,7 +216,7 @@ def getPoints(gameId):
 #returns a new acces token for given address
 def getAccessToken(address):
     refreshTokenUrl = "https://market-api.crabada.com/crabada-user/public/refresh/token?refreshToken=" + ACCESS_TOKENS[address]
-    accessToken = requests.get(refreshTokenUrl, headers=HEADERS, timeout=20).json()["result"]["accessToken"]
+    accessToken = requests.get(refreshTokenUrl, headers=HEADERS, timeout=10).json()["result"]["accessToken"]
     return accessToken
 
 #returns available team with 0 looting point. 
