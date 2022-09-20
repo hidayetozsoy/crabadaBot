@@ -1,4 +1,5 @@
-import requests
+import requests, sys, os
+sys.path.append((os.path.dirname(__file__)))
 from config import ACCESS_TOKENS
 
 def getHeaders(accessToken, gameId):

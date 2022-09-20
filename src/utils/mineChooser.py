@@ -1,4 +1,5 @@
-import json, os
+import json, os, sys
+sys.path.append((os.path.dirname(__file__)))
 from funcs import *
 from consts import *
 
