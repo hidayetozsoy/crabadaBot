@@ -31,7 +31,7 @@ def main(address):
     ADDRESS = address
     while True:
         try:
-            teamsInfo = getTeamsInfo()
+            teamsInfo = getTeamsInfo(address)
             if not teamsInfo:
                 printn("no available team...")
                 sleepy(60)
