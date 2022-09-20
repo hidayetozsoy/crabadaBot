@@ -1,4 +1,5 @@
-import time, requests, json, os
+import time, requests, json, sys, os
+sys.path.append((os.path.dirname(__file__)))
 from random import randint
 from web3 import Web3 
 from web3.middleware import geth_poa_middleware
